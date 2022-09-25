@@ -1,0 +1,226 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Development.SecondPage">
+
+    <ContentPage.Resources>
+        <ResourceDictionary>
+
+            <Color x:Key="BtnBG">#525252</Color>
+            <Color x:Key="BtnTextColor">#fff</Color>
+
+            <Color x:Key="ScreenBGColor">black</Color>
+            <Color x:Key="ScreenRecentColor">#fff</Color>
+            <Color x:Key="ScreenHoldingColor">Gray</Color>
+
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    
+    <ContentPage.Content>
+        <StackLayout HorizontalOptions="FillAndExpand"
+                     VerticalOptions="FillAndExpand"
+                     BackgroundColor="#303030">
+
+
+            <Grid Margin="20,100,20,100"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  ColumnDefinitions="*,*,*,*"
+                  RowDefinitions="*,*,*,*,*,*,*,*"
+                     >
+
+                <StackLayout Orientation="Vertical"
+                             HorizontalOptions="FillAndExpand"
+                             VerticalOptions="FillAndExpand"
+                             Grid.Row="0"
+                             Grid.Column="0"
+                             BackgroundColor="{StaticResource ScreenBGColor}"
+                             Grid.ColumnSpan="4"
+                             Grid.RowSpan="2">
+
+                    <Label Text="12 + 12"
+                           FontSize="40"
+                           HorizontalOptions="EndAndExpand"
+                           Margin="0,20,10,0"
+                   TextColor="White"/>
+
+                    <Label Text="24"
+                           FontSize="Medium"
+                           HorizontalOptions="EndAndExpand"
+                           VerticalOptions="End"
+                           Margin="0,20,10,0"
+                           TextColor="White"/>
+
+                </StackLayout>
+
+
+                <Button Grid.Row="3"
+                       Grid.Column="0"
+                       Text="7"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+
+                <Button Grid.Row="3"
+                       Grid.Column="1"
+                       Text="8"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+                <Button Grid.Row="3"
+                       Grid.Column="2"
+                       Text="9"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+                <Button Grid.Row="3"
+                       Grid.Column="3"
+                       Text="AC"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+                <Button Grid.Row="4"
+                       Grid.Column="0"
+                       Text="4"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+                <Button Grid.Row="4"
+                       Grid.Column="1"
+                       Text="5"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+                <Button Grid.Row="4"
+                       Grid.Column="2"
+                       Text="6"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+
+                <Button Grid.Row="4"
+                       Grid.Column="3"
+                       Text="/"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+
+                <Button Grid.Row="5"
+                       Grid.Column="0"
+                       Text="1"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+
+                <Button Grid.Row="5"
+                       Grid.Column="1"
+                       Text="2"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+                <Button Grid.Row="5"
+                       Grid.Column="2"
+                       Text="3"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+
+                <Button Grid.Row="5"
+                       Grid.Column="3"
+                       Text="*"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+
+                <Button Grid.Row="6"
+                       Grid.Column="0"
+                       Text="00"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+
+                <Button Grid.Row="6"
+                       Grid.Column="1"
+                       Text="0"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+
+                <Button Grid.Row="6"
+                       Grid.Column="2"
+                       Text="-"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+                <Button Grid.Row="6"
+                       Grid.Column="3"
+                       Text="+"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+
+                <Button Grid.Row="7"
+                       Grid.Column="0"
+                       Text="Calculate"
+                       Grid.ColumnSpan="4"
+                       Style="{StaticResource BTNF}"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       
+                       />
+
+
+            </Grid>
+
+
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
