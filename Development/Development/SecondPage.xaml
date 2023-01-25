@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Development.SecondPage">
+             x:Class="Development.SecondPage"
+             xmlns:ViewModel="clr-namespace:Development.ViewModels" >
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -15,6 +16,10 @@
 
         </ResourceDictionary>
     </ContentPage.Resources>
+
+    <ContentPage.BindingContext>
+        <ViewModel:UserViewModel/>
+    </ContentPage.BindingContext>
     
     <ContentPage.Content>
         <StackLayout HorizontalOptions="FillAndExpand"
@@ -22,7 +27,7 @@
                      BackgroundColor="#303030">
 
 
-            <Grid Margin="20,100,20,100"
+            <Grid Margin="15,30,15,30"
                   HorizontalOptions="FillAndExpand"
                   VerticalOptions="FillAndExpand"
                   ColumnDefinitions="*,*,*,*"
@@ -38,14 +43,16 @@
                              Grid.ColumnSpan="4"
                              Grid.RowSpan="2">
 
-                    <Label Text="12 + 12"
+                    <Label Text="{Binding Show}"
+                           x:Name="big"
                            FontSize="40"
                            HorizontalOptions="EndAndExpand"
                            Margin="0,20,10,0"
                    TextColor="White"/>
 
-                    <Label Text="24"
-                           FontSize="Medium"
+                    <Label Text="{Binding Answer}"
+                           FontSize="30"
+                           x:Name="small"
                            HorizontalOptions="EndAndExpand"
                            VerticalOptions="End"
                            Margin="0,20,10,0"
@@ -57,164 +64,213 @@
                 <Button Grid.Row="3"
                        Grid.Column="0"
                        Text="7"
-                       Style="{StaticResource BTNF}"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="7"
                        />
 
 
                 <Button Grid.Row="3"
                        Grid.Column="1"
                        Text="8"
-                       Style="{StaticResource BTNF}"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="8"
                        />
 
                 <Button Grid.Row="3"
                        Grid.Column="2"
                        Text="9"
-                       Style="{StaticResource BTNF}"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="9"
                        />
 
                 <Button Grid.Row="3"
                        Grid.Column="3"
-                       Text="AC"
-                       Style="{StaticResource BTNF}"
+                       Text="/"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                        Command="{Binding GetValue}"
+                        CommandParameter="/"
                        />
 
                 <Button Grid.Row="4"
                        Grid.Column="0"
                        Text="4"
-                       Style="{StaticResource BTNF}"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="4"
                        />
 
                 <Button Grid.Row="4"
                        Grid.Column="1"
                        Text="5"
-                       Style="{StaticResource BTNF}"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="5"
                        />
 
                 <Button Grid.Row="4"
                        Grid.Column="2"
                        Text="6"
-                       Style="{StaticResource BTNF}"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="6"
                        />
 
 
                 <Button Grid.Row="4"
                        Grid.Column="3"
-                       Text="/"
-                       Style="{StaticResource BTNF}"
+                       Text="*"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="*"
                        />
 
 
                 <Button Grid.Row="5"
                        Grid.Column="0"
                        Text="1"
-                       Style="{StaticResource BTNF}"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="1"
                        />
 
 
                 <Button Grid.Row="5"
                        Grid.Column="1"
                        Text="2"
-                       Style="{StaticResource BTNF}"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="2"
                        />
 
                 <Button Grid.Row="5"
                        Grid.Column="2"
                        Text="3"
-                       Style="{StaticResource BTNF}"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="3"
                        />
 
 
                 <Button Grid.Row="5"
                        Grid.Column="3"
-                       Text="*"
-                       Style="{StaticResource BTNF}"
+                       Text="-"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="-"
                        />
 
 
                 <Button Grid.Row="6"
                        Grid.Column="0"
-                       Text="00"
-                       Style="{StaticResource BTNF}"
+                       Text="√"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="√"
                        />
 
 
                 <Button Grid.Row="6"
                        Grid.Column="1"
                        Text="0"
-                       Style="{StaticResource BTNF}"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="0"
                        />
 
 
                 <Button Grid.Row="6"
                        Grid.Column="2"
-                       Text="-"
-                       Style="{StaticResource BTNF}"
+                       Text="^"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="^"
                        />
 
                 <Button Grid.Row="6"
                        Grid.Column="3"
                        Text="+"
-                       Style="{StaticResource BTNF}"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="+"
+                       />
+
+                <Button Grid.Row="7"
+                       Grid.Column="0"
+                       Text="."
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       Command="{Binding GetValue}"
+                        CommandParameter="."
                        />
 
 
                 <Button Grid.Row="7"
-                       Grid.Column="0"
-                       Text="Calculate"
-                       Grid.ColumnSpan="4"
-                       Style="{StaticResource BTNF}"
+                       Grid.Column="3"
+                       Grid.ColumnSpan="1"
+                       Text="Del"
                        TextColor="{StaticResource BtnTextColor}"
                        BackgroundColor="{StaticResource BtnBG}"
-                       
+                       Command="{Binding GetValue}"
+                        CommandParameter="del"
+                       />
+
+                <Button Grid.Row="7"
+                       Grid.Column="1"
+                       Grid.ColumnSpan="1"
+                       Text="("
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       Command="{Binding GetValue}"
+                        CommandParameter="("
+                       />
+
+                <Button Grid.Row="7"
+                       Grid.Column="2"
+                       Grid.ColumnSpan="1"
+                       Text=")"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       Command="{Binding GetValue}"
+                        CommandParameter=")"
+                       />
+
+                <Button Grid.Row="8"
+                       Grid.Column="0"
+                        Grid.ColumnSpan="2"
+                       Text="AC"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       Command="{Binding GetValue}"
+                        CommandParameter="ac"
+                       />
+
+
+                <Button Grid.Row="8"
+                       Grid.Column="2"
+                       Text="Calculate"
+                       Grid.ColumnSpan="2"
+                       TextColor="{StaticResource BtnTextColor}"
+                       BackgroundColor="{StaticResource BtnBG}"
+                       Command="{Binding Calculate}"
                        />
 
 
