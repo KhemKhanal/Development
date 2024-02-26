@@ -13,7 +13,13 @@ namespace Development
         public MainPage()
         {
             InitializeComponent();
-            Animate();
+        }
+
+        protected override async void OnAppearing()
+        {
+            base.OnAppearing();
+
+            await Animate();
         }
 
         public async Task Animate()
