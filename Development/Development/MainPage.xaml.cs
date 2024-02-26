@@ -13,6 +13,15 @@ namespace Development
         public MainPage()
         {
             InitializeComponent();
+            Animate();
+        }
+
+        public async Task Animate()
+        {
+            img.Opacity = 0;
+            await img.FadeTo(1, 1000);
+            Application.Current.MainPage = new NavigationPage(new SecondPage());
+
         }
     }
 }
