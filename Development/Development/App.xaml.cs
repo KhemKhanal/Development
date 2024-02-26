@@ -10,7 +10,7 @@ namespace Development
         {
             InitializeComponent();
 
-            MainPage = new SecondPage();
+            MainPage = new MainPage();
         }
 
         protected override void OnStart()
