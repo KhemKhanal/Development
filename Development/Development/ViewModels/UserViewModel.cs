@@ -1,14 +1,14 @@
-﻿using System;
+﻿using Development.Models;
+using Development.StaticFunctions;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.ComponentModel;
+using System.Globalization;
 using System.Linq;
 using System.Windows.Input;
 using Xamarin.Forms;
-using Development.StaticFunctions;
-using System.Collections.ObjectModel;
-using Development.Models;
-using System.Globalization;
 
 namespace Development.ViewModels
 {
@@ -21,7 +21,7 @@ namespace Development.ViewModels
         private string show = "";
         private object _selectedItem;
         readonly char[] deli = { '^', '√', '/', '*', '-', '+' };
-        private ObservableCollection<Calculations> calculations;
+        private readonly ObservableCollection<Calculations> calculations;
 
         //Events
         public event PropertyChangedEventHandler PropertyChanged;
@@ -69,9 +69,9 @@ namespace Development.ViewModels
 
         public ObservableCollection<Calculations> Calculations
         {
-            get 
+            get
             {
-                return calculations;   
+                return calculations;
             }
         }
 
@@ -140,15 +140,20 @@ namespace Development.ViewModels
             //Switching for each case of input value
             switch (currentInput)
             {
-                case "del": Delete();
+                case "del":
+                    Delete();
                     break;
-                case "ac": AllClear();
+                case "ac":
+                    AllClear();
                     break;
-                case "number": IsNumber(input);
+                case "number":
+                    IsNumber(input);
                     break;
-                case "operator": IsOperator(input);
+                case "operator":
+                    IsOperator(input);
                     break;
-                case "bracket": IsBracket(input);
+                case "bracket":
+                    IsBracket(input);
                     break;
                 default: break;
             }
@@ -173,13 +178,14 @@ namespace Development.ViewModels
                     return;
                 }
 
-                if (double.TryParse(outcome, out double dou)){
+                if (double.TryParse(outcome, out double dou))
+                {
 
                     negativeNum = dou < 0;
 
                     answer = dou.ToString($"{ToolFunc.DecimalPointManager(dou)}");
 
-                    
+
                     // Updating history
 
                     DateTime datetime = DateTime.Now;
@@ -187,7 +193,7 @@ namespace Development.ViewModels
                     string time = datetime.ToString("HH:mm", CultureInfo.InvariantCulture);
 
                     HistoryKeeper.AppendToHistory(date, time, show, answer);
-                    calculations.Insert(0,new Calculations(date, time, show, answer));
+                    calculations.Insert(0, new Calculations(date, time, show, answer));
                     OnPropertyChanged(nameof(Calculations));
 
                     show = "";
@@ -201,7 +207,8 @@ namespace Development.ViewModels
                     Application.Current.MainPage.DisplayAlert("Attention!", outcome, "Ok");
                 }
 
-            }catch
+            }
+            catch
             {
                 Application.Current.MainPage.DisplayAlert("Error!", "Please check the input and try again!", "Ok");
             }
@@ -211,8 +218,7 @@ namespace Development.ViewModels
 
         private void ItemTappedd(object args)
         {
-            Calculations item = args as Calculations;
-            if (item == null)
+            if (!(args is Calculations item))
                 return;
 
             show = item.Showw;
@@ -259,7 +265,7 @@ namespace Development.ViewModels
                     return true;
                 }
 
-                if(input == "√")
+                if (input == "√")
                 {
                     last = true;
                     show = show + "2" + input;
@@ -357,7 +363,7 @@ namespace Development.ViewModels
                 //If the deleted string is an operator
                 if (Array.IndexOf(deli, show[show.Length - 1]) >= 0)
                 {
-                    last= false;
+                    last = false;
                 }
 
 
@@ -365,7 +371,7 @@ namespace Development.ViewModels
                 temp = show.Remove(show.Length - 1, 1);
             }
 
-            
+
 
             //Update the show value
             show = temp;
@@ -378,11 +384,11 @@ namespace Development.ViewModels
         {
             if (input == ".")
             {
-                if (show[show.Length-1].Equals("."))
+                if (show[show.Length - 1].Equals("."))
                 {
                     return;
                 }
-                last=true;
+                last = true;
             }
 
             //If answer is showing the result of previous operation
@@ -462,7 +468,7 @@ namespace Development.ViewModels
 
             }
 
-            if(input == "(")
+            if (input == "(")
             {
                 if (calcualted)
                 {
@@ -485,16 +491,16 @@ namespace Development.ViewModels
             OnPropertyChanged(nameof(Show));
         }
 
-       /* private void UpdateHistory()
-        {
-            DateTime datetime = DateTime.Now;
-            string date = datetime.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
-            string time = datetime.ToString("HH:mm", CultureInfo.InvariantCulture);
+        /* private void UpdateHistory()
+         {
+             DateTime datetime = DateTime.Now;
+             string date = datetime.ToString("yyyy-MM-dd", CultureInfo.InvariantCulture);
+             string time = datetime.ToString("HH:mm", CultureInfo.InvariantCulture);
 
-            HistoryKeeper.AppendToHistory(date, time, show, answer);
-            calculations.Add(new Calculations(date, time, show, answer));
-            OnPropertyChanged(nameof(Calculations));
-        }*/
+             HistoryKeeper.AppendToHistory(date, time, show, answer);
+             calculations.Add(new Calculations(date, time, show, answer));
+             OnPropertyChanged(nameof(Calculations));
+         }*/
 
         #endregion
 
