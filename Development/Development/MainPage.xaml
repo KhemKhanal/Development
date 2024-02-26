@@ -1,21 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Development.MainPage">
+<ContentPage
+    x:Class="Development.MainPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    BackgroundColor="Black">
 
-    <StackLayout VerticalOptions="CenterAndExpand"
-                 HorizontalOptions="CenterAndExpand"
-                 Margin="30,20">
+    <StackLayout
+        Margin="30,20"
+        HorizontalOptions="CenterAndExpand"
+        VerticalOptions="CenterAndExpand">
 
-        <Image x:Name="img" 
-               Source="keys.png"
-               Margin="70,0"/>
+        <Image
+            x:Name="img"
+            Margin="70,0"
+            Source="playstore.png" />
 
-        <Label Text="Calculator" 
-               HorizontalOptions="CenterAndExpand"
-               TextColor="White"
-               FontSize="40"
-               Margin="10,20"/>
+        <StackLayout Margin="0,20" Orientation="Vertical">
+            <Label
+                Margin="10,0"
+                FontSize="40"
+                HorizontalOptions="CenterAndExpand"
+                Text="Normal"
+                TextColor="White" />
+
+            <Label
+                Margin="10,-10"
+                FontSize="30"
+                HorizontalOptions="CenterAndExpand"
+                Text="Calculator"
+                TextColor="White" />
+        </StackLayout>
 
     </StackLayout>
 

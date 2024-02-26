@@ -1,33 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Development.NewPage"
-             xmlns:ViewModel="clr-namespace:Development.ViewModels">
+<ContentPage
+    x:Class="Development.NewPage"
+    xmlns="http://xamarin.com/schemas/2014/forms"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:ViewModel="clr-namespace:Development.ViewModels">
 
     <ContentPage.BindingContext>
-        <ViewModel:NewVM/>
+        <ViewModel:NewVM />
     </ContentPage.BindingContext>
-    
+
     <ContentPage.Content>
-        <StackLayout VerticalOptions="FillAndExpand"
-                     HorizontalOptions="FillAndExpand"
-                     BackgroundColor="DarkBlue"
-                     >
-            <Entry Text="{Binding Name}"
-                VerticalOptions="Start"
-                   Margin="20"
-                HorizontalOptions="FillAndExpand"/>
+        <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+            <Entry
+                Margin="20"
+                HorizontalOptions="FillAndExpand"
+                Text="{Binding Name}"
+                TextColor="White"
+                VerticalOptions="Start" />
 
-            <Entry VerticalOptions="Start"
-                   HorizontalOptions="FillAndExpand"
-                   Text="{Binding Name2}"
-                   />
+            <Entry
+                HorizontalOptions="FillAndExpand"
+                Text="{Binding Name2}"
+                TextColor="White"
+                VerticalOptions="Start" />
 
-            <Button VerticalOptions="End"
-                    HorizontalOptions="CenterAndExpand"
-                    Command="{Binding command}"
-                    Text="{Binding Answer}"
-                />
+            <Button
+                Command="{Binding command}"
+                HorizontalOptions="CenterAndExpand"
+                Text="{Binding Answer}"
+                TextColor="White"
+                VerticalOptions="End" />
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
