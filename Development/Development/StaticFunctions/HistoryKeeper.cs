@@ -37,6 +37,11 @@ namespace Development.StaticFunctions
             string theFileName = "CalHistoryData.txt";
             string file = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), theFileName);
 
+            if (!File.Exists(file))
+            {
+                File.Create(file);
+            }
+
             List<string> lines = File.ReadAllLines(file).ToList();
 
             if (lines.Count > 50)
