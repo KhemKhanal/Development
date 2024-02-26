@@ -2,7 +2,10 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Development.SecondPage"
-             xmlns:ViewModel="clr-namespace:Development.ViewModels" >
+             xmlns:xct="http://xamarin.com/schemas/2020/toolkit"
+             NavigationPage.HasNavigationBar="False"
+             xmlns:ViewModel="clr-namespace:Development.ViewModels"
+             >
 
     <ContentPage.Resources>
         <ResourceDictionary>
@@ -14,7 +17,10 @@
             <Color x:Key="ScreenRecentColor">#fff</Color>
             <Color x:Key="ScreenHoldingColor">Gray</Color>
 
+            <xct:ItemSelectedEventArgsConverter x:Key="ItemSelectedEventArgsConverter" />
+
         </ResourceDictionary>
+
     </ContentPage.Resources>
 
     <ContentPage.BindingContext>
@@ -27,30 +33,38 @@
                      BackgroundColor="#303030">
 
 
-            <Grid Margin="15,30,15,30"
+            <Grid Margin="5,5,5,5"
+                  Padding="5"
+                  BackgroundColor="Transparent"
                   HorizontalOptions="FillAndExpand"
                   VerticalOptions="FillAndExpand"
                   ColumnDefinitions="*,*,*,*"
-                  RowDefinitions="*,*,*,*,*,*,*,*"
+                  RowDefinitions="*,*,*,*"
                      >
 
-                <StackLayout Orientation="Vertical"
+                <Frame
+                    Padding="0"
+                    Grid.ColumnSpan="4"
+                    Grid.RowSpan="1"
+                    Grid.Row="0"
+                    Grid.Column="0"
+                    CornerRadius="10"
+                    >
+                    <StackLayout Orientation="Vertical"
                              HorizontalOptions="FillAndExpand"
                              VerticalOptions="FillAndExpand"
-                             Grid.Row="0"
-                             Grid.Column="0"
+                                 Padding="10"
                              BackgroundColor="{StaticResource ScreenBGColor}"
-                             Grid.ColumnSpan="4"
-                             Grid.RowSpan="2">
+                             >
 
-                    <Label Text="{Binding Show}"
+                        <Label Text="{Binding Show}"
                            x:Name="big"
                            FontSize="40"
                            HorizontalOptions="EndAndExpand"
                            Margin="0,20,10,0"
                    TextColor="White"/>
 
-                    <Label Text="{Binding Answer}"
+                        <Label Text="{Binding Answer}"
                            FontSize="30"
                            x:Name="small"
                            HorizontalOptions="EndAndExpand"
@@ -58,10 +72,35 @@
                            Margin="0,20,10,0"
                            TextColor="White"/>
 
-                </StackLayout>
+                    </StackLayout>
+                </Frame>
 
+                <xct:TabView
+                    Grid.Row="1"
+                    Grid.ColumnSpan="4"
+                    Grid.RowSpan="3"
+                TabStripPlacement="Top"
+                TabStripBackgroundColor="Transparent"
+                TabStripHeight="60"
+                TabIndicatorColor="White"
+                    TabContentBackgroundColor="Transparent"
+                    >
 
-                <Button Grid.Row="3"
+                    <!--Buttons are here!-->
+                    <xct:TabViewItem
+                    Icon="calculator.png"
+                        Text="Calculator"
+                    TextColor="White"
+                    TextColorSelected="White">
+                        
+                        
+                        <Grid Margin="0"
+                  HorizontalOptions="FillAndExpand"
+                  VerticalOptions="FillAndExpand"
+                  ColumnDefinitions="*,*,*,*"
+                  RowDefinitions="0,0,0,*,*,*">
+
+                            <Button Grid.Row="3"
                        Grid.Column="0"
                        Text="7"
                        TextColor="{StaticResource BtnTextColor}"
@@ -71,7 +110,7 @@
                        />
 
 
-                <Button Grid.Row="3"
+                            <Button Grid.Row="3"
                        Grid.Column="1"
                        Text="8"
                        TextColor="{StaticResource BtnTextColor}"
@@ -80,7 +119,7 @@
                         CommandParameter="8"
                        />
 
-                <Button Grid.Row="3"
+                            <Button Grid.Row="3"
                        Grid.Column="2"
                        Text="9"
                        TextColor="{StaticResource BtnTextColor}"
@@ -89,7 +128,7 @@
                         CommandParameter="9"
                        />
 
-                <Button Grid.Row="3"
+                            <Button Grid.Row="3"
                        Grid.Column="3"
                        Text="/"
                        TextColor="{StaticResource BtnTextColor}"
@@ -98,7 +137,7 @@
                         CommandParameter="/"
                        />
 
-                <Button Grid.Row="4"
+                            <Button Grid.Row="4"
                        Grid.Column="0"
                        Text="4"
                        TextColor="{StaticResource BtnTextColor}"
@@ -107,7 +146,7 @@
                         CommandParameter="4"
                        />
 
-                <Button Grid.Row="4"
+                            <Button Grid.Row="4"
                        Grid.Column="1"
                        Text="5"
                        TextColor="{StaticResource BtnTextColor}"
@@ -116,7 +155,7 @@
                         CommandParameter="5"
                        />
 
-                <Button Grid.Row="4"
+                            <Button Grid.Row="4"
                        Grid.Column="2"
                        Text="6"
                        TextColor="{StaticResource BtnTextColor}"
@@ -126,7 +165,7 @@
                        />
 
 
-                <Button Grid.Row="4"
+                            <Button Grid.Row="4"
                        Grid.Column="3"
                        Text="*"
                        TextColor="{StaticResource BtnTextColor}"
@@ -136,7 +175,7 @@
                        />
 
 
-                <Button Grid.Row="5"
+                            <Button Grid.Row="5"
                        Grid.Column="0"
                        Text="1"
                        TextColor="{StaticResource BtnTextColor}"
@@ -146,7 +185,7 @@
                        />
 
 
-                <Button Grid.Row="5"
+                            <Button Grid.Row="5"
                        Grid.Column="1"
                        Text="2"
                        TextColor="{StaticResource BtnTextColor}"
@@ -155,7 +194,7 @@
                         CommandParameter="2"
                        />
 
-                <Button Grid.Row="5"
+                            <Button Grid.Row="5"
                        Grid.Column="2"
                        Text="3"
                        TextColor="{StaticResource BtnTextColor}"
@@ -165,7 +204,7 @@
                        />
 
 
-                <Button Grid.Row="5"
+                            <Button Grid.Row="5"
                        Grid.Column="3"
                        Text="-"
                        TextColor="{StaticResource BtnTextColor}"
@@ -175,7 +214,7 @@
                        />
 
 
-                <Button Grid.Row="6"
+                            <Button Grid.Row="6"
                        Grid.Column="0"
                        Text="√"
                        TextColor="{StaticResource BtnTextColor}"
@@ -185,7 +224,7 @@
                        />
 
 
-                <Button Grid.Row="6"
+                            <Button Grid.Row="6"
                        Grid.Column="1"
                        Text="0"
                        TextColor="{StaticResource BtnTextColor}"
@@ -195,7 +234,7 @@
                        />
 
 
-                <Button Grid.Row="6"
+                            <Button Grid.Row="6"
                        Grid.Column="2"
                        Text="^"
                        TextColor="{StaticResource BtnTextColor}"
@@ -204,7 +243,7 @@
                         CommandParameter="^"
                        />
 
-                <Button Grid.Row="6"
+                            <Button Grid.Row="6"
                        Grid.Column="3"
                        Text="+"
                        TextColor="{StaticResource BtnTextColor}"
@@ -213,7 +252,7 @@
                         CommandParameter="+"
                        />
 
-                <Button Grid.Row="7"
+                            <Button Grid.Row="7"
                        Grid.Column="0"
                        Text="."
                        TextColor="{StaticResource BtnTextColor}"
@@ -223,7 +262,7 @@
                        />
 
 
-                <Button Grid.Row="7"
+                            <Button Grid.Row="7"
                        Grid.Column="3"
                        Grid.ColumnSpan="1"
                        Text="Del"
@@ -233,7 +272,7 @@
                         CommandParameter="del"
                        />
 
-                <Button Grid.Row="7"
+                            <Button Grid.Row="7"
                        Grid.Column="1"
                        Grid.ColumnSpan="1"
                        Text="("
@@ -243,7 +282,7 @@
                         CommandParameter="("
                        />
 
-                <Button Grid.Row="7"
+                            <Button Grid.Row="7"
                        Grid.Column="2"
                        Grid.ColumnSpan="1"
                        Text=")"
@@ -253,7 +292,7 @@
                         CommandParameter=")"
                        />
 
-                <Button Grid.Row="8"
+                            <Button Grid.Row="8"
                        Grid.Column="0"
                         Grid.ColumnSpan="2"
                        Text="AC"
@@ -264,7 +303,7 @@
                        />
 
 
-                <Button Grid.Row="8"
+                            <Button Grid.Row="8"
                        Grid.Column="2"
                        Text="Calculate"
                        Grid.ColumnSpan="2"
@@ -272,6 +311,66 @@
                        BackgroundColor="{StaticResource BtnBG}"
                        Command="{Binding Calculate}"
                        />
+
+
+                        </Grid>
+                        
+                        
+                        
+                    </xct:TabViewItem>
+
+                    <xct:TabViewItem
+                    Icon="history.png"
+                        Text="History"
+                    TextColor="White"
+                    TextColorSelected="White">
+                        
+                            <ListView ItemsSource="{Binding Calculations}"
+                                      VerticalOptions="FillAndExpand"
+                                      HorizontalOptions="FillAndExpand"
+                                      Margin="20,50,20,10"
+                                      SelectedItem="{Binding SelectedItem,Mode=TwoWay}"
+                                      RowHeight="80"
+                                      >
+
+                            <ListView.Behaviors>
+                                <xct:EventToCommandBehavior
+                                       Command="{Binding ItemTapped}"
+                                       EventArgsConverter="{StaticResource ItemSelectedEventArgsConverter}"
+                                       EventName="ItemSelected" />
+                            </ListView.Behaviors>
+
+                            <ListView.ItemTemplate>
+
+                                    <DataTemplate>
+
+                                    <ViewCell>
+                                        <StackLayout Orientation="Horizontal">
+                                            <StackLayout Orientation="Vertical" Margin="10">
+                                                <Label FontSize="Medium" Text="{Binding Date}"/>
+                                                <Label Text="{Binding Time}"/>
+                                            </StackLayout>
+
+                                            <StackLayout Orientation="Vertical" Margin="10" HorizontalOptions="EndAndExpand">
+                                                <Label Text="{Binding Showw}" FontSize="Medium" HorizontalOptions="EndAndExpand"/>
+                                                <Label Text="{Binding Answerr}" HorizontalOptions="EndAndExpand"/>
+                                            </StackLayout>
+                                        </StackLayout>
+                                    </ViewCell>
+
+                                </DataTemplate>
+                                    
+                                </ListView.ItemTemplate>
+                                
+                            </ListView>
+                            
+                        
+                    </xct:TabViewItem>
+
+                </xct:TabView>
+
+
+                
 
 
             </Grid>
