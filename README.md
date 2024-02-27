@@ -1,4 +1,4 @@
-This is just a normal calculator which is available to in GooglePlay store. 
+This is just a normal calculator which is available in GooglePlay store. 
 I set the price to 500 baht because I know nobody will buy it XD
 
 I spend 3 months on it as it was my first project in Xamarin.forms. (I did not know how to use Github then, hence 20 commits)
